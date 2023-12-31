@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ProdutoService.Services.Comandos
 {
-    public class ProdutoComandoHandler : IRequestHandler<InserirComando, int>, IRequestHandler<EditarComando, object>,
+    public class ProdutoComandoHandler : IRequestHandler<InserirComando, object>, IRequestHandler<EditarComando, object>,
         IRequestHandler<ExcluirComando, object>
     {
         private readonly IProdutoRepositorio _produtoRepositorio;
@@ -23,7 +23,7 @@ namespace ProdutoService.Services.Comandos
             _produtoRepositorio = produtoRepositorio;
             _mapper = mapper;
         }
-        public async Task<int> Handle(InserirComando request, CancellationToken cancellationToken)
+        public async Task<object> Handle(InserirComando request, CancellationToken cancellationToken)
         {
             var produto = _mapper.Map<Produto>(request);
             
@@ -31,7 +31,9 @@ namespace ProdutoService.Services.Comandos
 
             var produtoInput = _mapper.Map<ProdutoInput>(produto);
 
-            return await _produtoRepositorio.Inserir(produtoInput);
+            var codigoProduto = await _produtoRepositorio.Inserir(produtoInput);
+
+            return new { codigoProduto };
         }
 
         public async Task<object> Handle(EditarComando request, CancellationToken cancellationToken)

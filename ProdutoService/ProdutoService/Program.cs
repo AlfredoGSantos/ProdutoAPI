@@ -1,20 +1,25 @@
+using Microsoft.OpenApi.Models;
 using ProdutoService.Configuracoes;
 using ProdutoService.Domain;
 using ProdutoService.Services.Queries;
 
-var connectionString = !string.IsNullOrEmpty(CustomConfig.ConnectionString) ? CustomConfig.ConnectionString : string.Empty;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(opt => opt.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
 builder.Services.AddMap();
 builder.Services.AddMediatRConfiguration();
-builder.Services.AddRepositorios(connectionString);
+builder.Services.AddRepositorios();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(set => set.SwaggerDoc("v1", new OpenApiInfo()
+{
+    Title = "ProdutoService",
+    Version = "v1",
+    Description = "API REST .NET CORE"
+}));
 
 var app = builder.Build();
 

@@ -5,9 +5,9 @@ namespace ProdutoService.Configuracoes
 {
     public static class Repositorios
     {
-        public static void AddRepositorios(this IServiceCollection services, string connectionString)
+        public static void AddRepositorios(this IServiceCollection services)
         {
-            services.AddSingleton<IProdutoRepositorio>(new ProdutoRepositorio(connectionString));
+            services.AddSingleton<IProdutoRepositorio, ProdutoRepositorio>();
         }
     }
 }

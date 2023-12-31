@@ -13,7 +13,7 @@ namespace ProdutoService.Domain.Entidades
         public string Situacao { get; set; } = string.Empty;
         public DateTime? DataFabricacao { get; set; }
         public DateTime? DataValidade { get; set; }
-        public int CodigoFornecedor { get; set; }
+        public int? CodigoFornecedor { get; set; }
         public string DescricaoFornecedor { get; set; } = string.Empty;
         public string CNPJ { get; set; } = string.Empty;
     }

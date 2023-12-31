@@ -8,6 +8,6 @@ namespace ProdutoService.Domain
 {
     public static class CustomConfig
     {
-        public static string? ConnectionString => Environment.GetEnvironmentVariable("ConnectionString");
+        public static string ConnectionString => Environment.GetEnvironmentVariable("ConnectionString");
     }
 }

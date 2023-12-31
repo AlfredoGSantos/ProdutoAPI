@@ -13,6 +13,6 @@ namespace ProdutoService.Domain.Entidades
         public int idStatus { get; set; }
         public DateTime? dtFabricao { get; set; }
         public DateTime? dtValidade { get; set; }
-        public int idFornecedor { get; set; }
+        public int? idFornecedor { get; set; }
     }
 }

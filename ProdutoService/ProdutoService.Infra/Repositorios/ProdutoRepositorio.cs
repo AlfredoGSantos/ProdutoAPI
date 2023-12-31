@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using ProdutoService.Domain;
 using ProdutoService.Domain.Entidades;
 using ProdutoService.Domain.Interface;
 using ProdutoService.Infra.Queries;
@@ -13,15 +14,15 @@ namespace ProdutoService.Infra.Repositorios
 {
     public class ProdutoRepositorio : BaseSQLConnection, IProdutoRepositorio
     {
-        public ProdutoRepositorio(string ConnectionString) : base(ConnectionString)
+        public ProdutoRepositorio() : base(CustomConfig.ConnectionString)
         {
+            
         }
 
         public async Task<int> Editar(ProdutoInput produto)
         {
             try
             {
-                int result = 0;
                 string query = @"UPDATE Produtos.Produtos SET
 	                                    strDescricao = ISNULL(@strDescricao, strDescricao),
 	                                    dtFabricacao = ISNULL(@dtFabricao, dtFabricacao),
@@ -33,11 +34,11 @@ namespace ProdutoService.Infra.Repositorios
                 using (var conn = Connection)
                 {
                     conn.Open();
-                    result = await conn.QueryFirstOrDefaultAsync<int>(query, produto, commandType: System.Data.CommandType.Text);
+                    await conn.ExecuteAsync(query, produto, commandType: System.Data.CommandType.Text);
                     conn.Close();
                 }
 
-                return result;
+                return 1;
             }
             catch (Exception)
             {
@@ -71,6 +72,7 @@ namespace ProdutoService.Infra.Repositorios
         {
             try
             {
+                int result = 0;
                 string query = @"INSERT INTO Produtos.Produtos
                                  VALUES (@strDescricao, @idStatus, @dtFabricao, @dtValidade, @idFornecedor)
 
@@ -79,11 +81,11 @@ namespace ProdutoService.Infra.Repositorios
                 using (var conn = Connection)
                 {
                     conn.Open();
-                    await conn.ExecuteAsync(query, produto, commandType: System.Data.CommandType.Text);
+                    result = await conn.QueryFirstOrDefaultAsync<int>(query, produto, commandType: System.Data.CommandType.Text);
                     conn.Close();
                 }
 
-                return 1;
+                return result;
             }
             catch (Exception)
             {

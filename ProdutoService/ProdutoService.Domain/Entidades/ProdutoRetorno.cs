@@ -14,7 +14,7 @@ namespace ProdutoService.Domain.Entidades
         public string strDescricaoStatus { get; set; } = string.Empty;
         public DateTime? dtFabricacao { get; set; }
         public DateTime? dtValidade { get; set; }
-        public int idFornecedor { get; set; }
+        public int? idFornecedor { get; set; }
         public string strNome { get; set; } = string.Empty;
         public string strCNPJ { get; set; } = string.Empty;
     }

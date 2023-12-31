@@ -10,12 +10,19 @@ namespace ProdutoService.Infra
 {
     public class BaseSQLConnection
     {
+        private string _connectionString;
         private IDbConnection _connection;
-        public IDbConnection Connection => _connection;
+        public IDbConnection Connection
+        {
+            get
+            {
+                return _connection ?? new SqlConnection(_connectionString);
+            }
+        }
 
         public BaseSQLConnection(string ConnectionString)
         {
-            _connection = new SqlConnection(ConnectionString);
+            _connectionString = ConnectionString;
         }
     }
 }
