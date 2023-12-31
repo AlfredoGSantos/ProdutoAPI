@@ -12,11 +12,12 @@
     "http": {
       "commandName": "Project",
       "dotnetRunMessages": true,
-      "launchBrowser": true,
+      "launchBrowser": false,
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5235",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionString": "Server=LAPTOP-BF8PIAG7\\SQLEXPRESS;Database=Autoglass;User ID=Autoglass_Admin;Pwd=Aut0gl@a5s_Adm1n.;Enlist=false;Pooling=False;"
       }
     },
     "https": {
@@ -34,7 +35,8 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ConnectionString": "Server=LAPTOP-BF8PIAG7\\SQLEXPRESS;Database=Autoglass;User ID=Autoglass_Admin;Pwd=Aut0gl@a5s_Adm1n.;Enlist=false;Pooling=False;"
       }
     }
   }

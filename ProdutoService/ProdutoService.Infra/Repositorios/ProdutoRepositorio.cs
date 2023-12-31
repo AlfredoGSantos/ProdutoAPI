@@ -21,6 +21,7 @@ namespace ProdutoService.Infra.Repositorios
         {
             try
             {
+                int result = 0;
                 string query = @"UPDATE Produtos.Produtos SET
 	                                    strDescricao = ISNULL(@strDescricao, strDescricao),
 	                                    dtFabricacao = ISNULL(@dtFabricao, dtFabricacao),
@@ -32,11 +33,11 @@ namespace ProdutoService.Infra.Repositorios
                 using (var conn = Connection)
                 {
                     conn.Open();
-                    await conn.ExecuteAsync(query, produto, commandType: System.Data.CommandType.Text);
+                    result = await conn.QueryFirstOrDefaultAsync<int>(query, produto, commandType: System.Data.CommandType.Text);
                     conn.Close();
                 }
 
-                return 1;
+                return result;
             }
             catch (Exception)
             {
@@ -71,7 +72,9 @@ namespace ProdutoService.Infra.Repositorios
             try
             {
                 string query = @"INSERT INTO Produtos.Produtos
-                                 VALUES (@strDescricao, @idStatus, @dtFabricao, @dtValidade, @idFornecedor)";
+                                 VALUES (@strDescricao, @idStatus, @dtFabricao, @dtValidade, @idFornecedor)
+
+                                 SELECT @@IDENTITY";
 
                 using (var conn = Connection)
                 {

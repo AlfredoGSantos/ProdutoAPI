@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProdutoService.Services.Comandos
 {
-    public class InserirComandos: IRequest<object>
+    public class InserirComando: IRequest<int>
     {
         public string Descricao { get; set; } = string.Empty;
         public string Situacao { get; set; } = string.Empty;

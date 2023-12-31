@@ -4,14 +4,14 @@
     "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\ProdutoService.csproj": {}
   },
   "projects": {
-    "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\ProdutoService.csproj": {
+    "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\ProdutoService.csproj",
-        "projectName": "ProdutoService",
-        "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\ProdutoService.csproj",
+        "projectUniqueName": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj",
+        "projectName": "ProdutoService.Domain",
+        "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj",
         "packagesPath": "C:\\Users\\ALFREDOELARI\\.nuget\\packages\\",
-        "outputPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\obj\\",
+        "outputPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -46,6 +46,232 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Infra\\ProdutoService.Infra.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Infra\\ProdutoService.Infra.csproj",
+        "projectName": "ProdutoService.Infra",
+        "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Infra\\ProdutoService.Infra.csproj",
+        "packagesPath": "C:\\Users\\ALFREDOELARI\\.nuget\\packages\\",
+        "outputPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Infra\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ALFREDOELARI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj": {
+                "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.24, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Services\\ProdutoService.Services.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Services\\ProdutoService.Services.csproj",
+        "projectName": "ProdutoService.Services",
+        "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Services\\ProdutoService.Services.csproj",
+        "packagesPath": "C:\\Users\\ALFREDOELARI\\.nuget\\packages\\",
+        "outputPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Services\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ALFREDOELARI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj": {
+                "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\ProdutoService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\ProdutoService.csproj",
+        "projectName": "ProdutoService",
+        "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\ProdutoService.csproj",
+        "packagesPath": "C:\\Users\\ALFREDOELARI\\.nuget\\packages\\",
+        "outputPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ALFREDOELARI\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj": {
+                "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Domain\\ProdutoService.Domain.csproj"
+              },
+              "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Infra\\ProdutoService.Infra.csproj": {
+                "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Infra\\ProdutoService.Infra.csproj"
+              },
+              "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Services\\ProdutoService.Services.csproj": {
+                "projectPath": "C:\\APIS\\ProdutoAPI\\ProdutoService\\ProdutoService.Services\\ProdutoService.Services.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
