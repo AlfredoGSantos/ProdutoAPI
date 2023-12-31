@@ -24,7 +24,7 @@ namespace ProdutoService.Services.Validacoes
             if (produto.DataFabricacao.HasValue && produto.DataValidade.HasValue)
             {
                 if (produto.DataFabricacao.Value >= produto.DataValidade.Value)
-                    context.AddFailure("Data de fabricção não pode ser maior ou igual a data de validade.");
+                    context.AddFailure("Data de fabricação não pode ser maior ou igual a data de validade.");
             }
         }
     }

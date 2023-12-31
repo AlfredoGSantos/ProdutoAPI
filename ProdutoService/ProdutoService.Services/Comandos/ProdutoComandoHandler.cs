@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace ProdutoService.Services.Comandos
 {
     public class ProdutoComandoHandler : IRequestHandler<InserirComando, object>, IRequestHandler<EditarComando, object>,
@@ -26,7 +27,6 @@ namespace ProdutoService.Services.Comandos
         public async Task<object> Handle(InserirComando request, CancellationToken cancellationToken)
         {
             var produto = _mapper.Map<Produto>(request);
-            
             new ProdutoValidacao().ValidateAndThrow(produto);
 
             var produtoInput = _mapper.Map<ProdutoInput>(produto);
@@ -39,7 +39,6 @@ namespace ProdutoService.Services.Comandos
         public async Task<object> Handle(EditarComando request, CancellationToken cancellationToken)
         {
             var produto = _mapper.Map<Produto>(request);
-
             new ProdutoValidacao().ValidateAndThrow(produto);
 
             var produtoInput = _mapper.Map<ProdutoInput>(produto);

@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProdutoService.Services.Comandos;
@@ -33,13 +34,35 @@ namespace ProdutoService.Controllers
         [HttpPost]
         public async Task<object> Inserir([FromBody]InserirComando comando)
         {
-            return Ok(await _mediator.Send(comando));
+            try
+            {
+                return Ok(await _mediator.Send(comando));
+            }
+            catch (ValidationException ex)
+            {
+                return StatusCode(500, new { erros = ex.Errors.Select(e => e.ErrorMessage) });
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpPatch]
         public async Task<object> Editar([FromBody]EditarComando comando)
         {
-            return Ok(await _mediator.Send(comando));
+            try
+            {
+                return Ok(await _mediator.Send(comando));
+            }
+            catch (ValidationException ex)
+            {
+                return StatusCode(500, new { erros = ex.Errors.Select(e => e.ErrorMessage) });
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpDelete]

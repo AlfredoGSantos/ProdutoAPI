@@ -1418,6 +1418,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "FluentValidation >= 11.9.0",
       "MediatR >= 12.2.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.14",
       "ProdutoService.Domain >= 1.0.0",
@@ -1482,6 +1483,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[12.0.1, )"
+          },
+          "FluentValidation": {
+            "target": "Package",
+            "version": "[11.9.0, )"
           },
           "MediatR": {
             "target": "Package",

@@ -34,18 +34,18 @@ namespace ProdutoService.Infra.Queries
 					CASE WHEN @OrdenarPor IS NULL AND @OrdenacaoCrescente IS NULL THEN Produto.idProduto END ASC,
 					CASE WHEN (@OrdenarPor IS NULL OR @OrdenarPor = 'CodigoProduto') AND @OrdenacaoCrescente = 1 THEN Produto.idProduto END ASC,
 					CASE WHEN (@OrdenarPor IS NULL OR @OrdenarPor = 'CodigoProduto') AND @OrdenacaoCrescente = 0 THEN Produto.idProduto END DESC,
-					CASE WHEN @OrdenarPor = 'Descricao' AND @OrdenacaoCrescente = 0 THEN Produto.strDescricao END ASC,
-					CASE WHEN @OrdenarPor = 'Descricao' AND @OrdenacaoCrescente = 1 THEN Produto.strDescricao END DESC,
-					CASE WHEN @OrdenarPor = 'DataFabricacao' AND @OrdenacaoCrescente = 0 THEN Produto.dtFabricacao END ASC,
-					CASE WHEN @OrdenarPor = 'DataFabricacao' AND @OrdenacaoCrescente = 1 THEN Produto.dtFabricacao END DESC,
-					CASE WHEN @OrdenarPor = 'DataValidade' AND @OrdenacaoCrescente = 0 THEN Produto.dtValidade END ASC,
-					CASE WHEN @OrdenarPor = 'DataValidade' AND @OrdenacaoCrescente = 1 THEN Produto.dtValidade END DESC,
-					CASE WHEN @OrdenarPor = 'CodigoFornecedor' AND @OrdenacaoCrescente = 0 THEN Fornecedor.idFornecedor END ASC,
-					CASE WHEN @OrdenarPor = 'CodigoFornecedor' AND @OrdenacaoCrescente = 1 THEN Fornecedor.idFornecedor END DESC,
-					CASE WHEN @OrdenarPor = 'DescricaoFornecedor' AND @OrdenacaoCrescente = 0 THEN Fornecedor.strNome END ASC,
-					CASE WHEN @OrdenarPor = 'DescricaoFornecedor' AND @OrdenacaoCrescente = 1 THEN Fornecedor.strNome END DESC,
-					CASE WHEN @OrdenarPor = 'CNPJ' AND @OrdenacaoCrescente = 0 THEN Fornecedor.strCNPJ END ASC,
-					CASE WHEN @OrdenarPor = 'CNPJ' AND @OrdenacaoCrescente = 1 THEN Fornecedor.strCNPJ END DESC
+					CASE WHEN @OrdenarPor = 'Descricao' AND @OrdenacaoCrescente = 0 THEN Produto.strDescricao END DESC,
+					CASE WHEN @OrdenarPor = 'Descricao' AND @OrdenacaoCrescente = 1 THEN Produto.strDescricao END ASC,
+					CASE WHEN @OrdenarPor = 'DataFabricacao' AND @OrdenacaoCrescente = 0 THEN Produto.dtFabricacao END DESC,
+					CASE WHEN @OrdenarPor = 'DataFabricacao' AND @OrdenacaoCrescente = 1 THEN Produto.dtFabricacao END ASC,
+					CASE WHEN @OrdenarPor = 'DataValidade' AND @OrdenacaoCrescente = 0 THEN Produto.dtValidade END DESC,
+					CASE WHEN @OrdenarPor = 'DataValidade' AND @OrdenacaoCrescente = 1 THEN Produto.dtValidade END ASC,
+					CASE WHEN @OrdenarPor = 'CodigoFornecedor' AND @OrdenacaoCrescente = 0 THEN Fornecedor.idFornecedor END DESC,
+					CASE WHEN @OrdenarPor = 'CodigoFornecedor' AND @OrdenacaoCrescente = 1 THEN Fornecedor.idFornecedor END ASC,
+					CASE WHEN @OrdenarPor = 'DescricaoFornecedor' AND @OrdenacaoCrescente = 0 THEN Fornecedor.strNome END DESC,
+					CASE WHEN @OrdenarPor = 'DescricaoFornecedor' AND @OrdenacaoCrescente = 1 THEN Fornecedor.strNome END ASC,
+					CASE WHEN @OrdenarPor = 'CNPJ' AND @OrdenacaoCrescente = 0 THEN Fornecedor.strCNPJ END DESC,
+					CASE WHEN @OrdenarPor = 'CNPJ' AND @OrdenacaoCrescente = 1 THEN Fornecedor.strCNPJ END ASC
 				OFFSET (@Pagina - 1) * @ItensPagina ROWS FETCH NEXT @ItensPagina ROWS ONLY
 				
 				SELECT 
