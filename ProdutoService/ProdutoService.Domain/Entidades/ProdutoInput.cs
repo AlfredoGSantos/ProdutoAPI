@@ -11,8 +11,8 @@ namespace ProdutoService.Domain.Entidades
         public int? IdProduto { get; set; }
         public string strDescricao { get; set; }
         public int idStatus { get; set; }
-        public DateTime dtFabricao { get; set; }
-        public DateTime dtValidade { get; set; }
+        public DateTime? dtFabricao { get; set; }
+        public DateTime? dtValidade { get; set; }
         public int idFornecedor { get; set; }
     }
 }
