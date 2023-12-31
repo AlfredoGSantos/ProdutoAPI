@@ -17,19 +17,76 @@ namespace ProdutoService.Infra.Repositorios
         {
         }
 
-        public Task<int> Editar(ProdutoInput produto)
+        public async Task<int> Editar(ProdutoInput produto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = @"UPDATE Produtos.Produtos SET
+	                                    strDescricao = ISNULL(@strDescricao, strDescricao),
+	                                    dtFabricacao = ISNULL(@dtFabricao, dtFabricacao),
+	                                    dtValidade = ISNULL(@dtValidade, dtValidade), 
+	                                    idFornecedor = ISNULL(@idFornecedor, idFornecedor)
+                                    WHERE 
+	                                    idProduto = @IdProduto";
+
+                using (var conn = Connection)
+                {
+                    conn.Open();
+                    await conn.ExecuteAsync(query, produto, commandType: System.Data.CommandType.Text);
+                    conn.Close();
+                }
+
+                return 1;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
-        public Task<int> Excluir(int id)
+        public async Task<int> Excluir(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = "UPDATE Produtos.Produtos SET idStatus = 2 WHERE idProduto = @id";
+
+                using (var conn = Connection)
+                {
+                    conn.Open();
+                    await conn.ExecuteAsync(query, new { id }, commandType: System.Data.CommandType.Text);
+                    conn.Close();
+                }
+
+                return 1;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
-        public Task<int> Inserir(ProdutoInput produto)
+        public async Task<int> Inserir(ProdutoInput produto)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string query = @"INSERT INTO Produtos.Produtos
+                                 VALUES (@strDescricao, @idStatus, @dtFabricao, @dtValidade, @idFornecedor)";
+
+                using (var conn = Connection)
+                {
+                    conn.Open();
+                    await conn.ExecuteAsync(query, produto, commandType: System.Data.CommandType.Text);
+                    conn.Close();
+                }
+
+                return 1;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public async Task<DadosPaginado<ProdutoRetorno>> Listar(ProdutoFiltro filtro)
